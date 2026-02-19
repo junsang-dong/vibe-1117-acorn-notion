@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -12,6 +13,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
+// Vercel에서는 express.static()이 무시되므로 루트 경로를 명시적으로 처리
+// 참고: https://vercel.com/docs/frameworks/backend/express#limitations
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Notion Client 초기화
 const notion = new Client({
