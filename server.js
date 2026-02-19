@@ -272,8 +272,8 @@ app.get('/api/database/properties', async (req, res) => {
   }
 });
 
-// 서버 시작 (로컬 개발용)
-if (process.env.NODE_ENV !== 'production') {
+// 로컬 개발 시 서버 시작 (Vercel에서는 app만 export)
+if (typeof process.env.VERCEL === 'undefined') {
   app.listen(PORT, () => {
     console.log(`🚀 Server is running on http://localhost:${PORT}`);
     console.log(`📝 Notion Database ID: ${databaseId ? '설정됨' : '미설정'}`);

@@ -72,6 +72,20 @@ npm start
 
 서버가 실행되면 브라우저에서 `http://localhost:3000`으로 접속합니다.
 
+### 4. Vercel 배포 (선택사항)
+
+[Vercel](https://vercel.com)에 무료로 배포할 수 있습니다.
+
+1. [Vercel](https://vercel.com)에 로그인
+2. **Add New** → **Project** 선택
+3. **Import Git Repository**에서 `junsang-dong/vibe-1117-acorn-notion` 선택
+4. **Environment Variables**에 다음 변수 추가:
+   - `NOTION_TOKEN`: Notion Integration Token
+   - `NOTION_DATABASE_ID`: Notion Database ID
+5. **Deploy** 클릭
+
+배포 완료 후 제공되는 URL(예: `https://your-app.vercel.app`)로 접속합니다.
+
 ## 🔧 Notion 설정 가이드
 
 ### 1. Notion Integration 생성
